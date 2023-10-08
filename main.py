@@ -53,7 +53,7 @@ async def predict(image_data: ImageData):
     if image_data:
         image_bytes = base64.b64decode(image_data.imagedata)
         im = Image.open(BytesIO(image_bytes))
-        im = im.resize((600, 600), Image.ANTIALIAS)
+        # im = im.resize((600, 600), Image.ANTIALIAS)
         # reduce size=320 for faster inference
         results = models['yolov5m6'](im, size=600)
         # return results.pandas().xyxy[0].to_json(orient='records')
